@@ -16,7 +16,10 @@ gem 'capistrano-ext'
 gem 'devise', "~> 1.1.0"
 gem "configatron"
 gem "post_commit"
+gem "will_paginate", "~> 3.0.pre2"
+gem "configatron"
 gem "declarative_authorization"
+gem "aasm"
 
 group :development do
   # To use debugger
@@ -33,6 +36,8 @@ end
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :test do
+  gem 'webrat'
+  gem 'rspec'
+  gem 'rspec-rails'
+end

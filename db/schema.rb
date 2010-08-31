@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100831092056) do
+ActiveRecord::Schema.define(:version => 20100831101816) do
+
+  create_table "announcements", :force => true do |t|
+    t.text     "headline"
+    t.text     "message"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20100831092056) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "label"
+    t.string   "identifier"
+    t.text     "description"
+    t.string   "field_type",  :default => "string"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
