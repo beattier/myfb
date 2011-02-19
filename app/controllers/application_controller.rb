@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :prepare_for_mobile
   
   helper :all # include all helpers, all the time
-  filter_parameter_logging :password, :password_confirmation
   
   # Return the value for a given setting
   def s(identifier)

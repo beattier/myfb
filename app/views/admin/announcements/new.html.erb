@@ -2,7 +2,7 @@
 	Announcements
 <% end -%>
 
-<% form_for(:announcement, @announcement,:url => admin_announcements_path) do |f| %>
+<%= form_for(@announcement,:url => admin_announcements_path) do |f| %>
   <%= f.error_messages %>
 
   <p>

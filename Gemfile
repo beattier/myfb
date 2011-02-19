@@ -13,7 +13,7 @@ gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'devise', "~> 1.1.0"
+gem 'devise'
 gem "configatron"
 gem "post_commit"
 gem "will_paginate", "~> 3.0.pre2"

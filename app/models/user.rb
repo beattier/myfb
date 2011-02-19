@@ -2,7 +2,7 @@ require 'aasm_roles'
 class User < ActiveRecord::Base
   include AasmRoles
   
-  devise :database_authenticatable, :http_authenticatable, :recoverable, :registerable, :rememberable
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable
 
   # Relations
   has_and_belongs_to_many :roles
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
   attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
 
-  before_validation_on_create :set_default
+  before_validation(:set_default, :on => :create)
   
   def admin?
     has_role?(:admin)

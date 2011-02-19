@@ -125,7 +125,7 @@ DEPENDENCIES
   capistrano-ext
   configatron
   declarative_authorization
-  devise (~> 1.1.0)
+  devise
   gravatar_image_tag
   post_commit
   rails (= 3.0.0)
