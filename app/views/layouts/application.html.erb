@@ -8,10 +8,10 @@
 	<title><%= configatron.site_name %></title>
 
 	<%= (stylesheet_link_merged :base).html_safe %>
-	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+	<%= javascript_include_tag :defaults %>
 	<%= (javascript_include_merged :base).html_safe %>
 	<%= stylesheet_link_tag 'mobile' if mobile_device? %>
-  
+  	<%=  csrf_meta_tag %>
 </head>
 
 <body>
