@@ -29,7 +29,8 @@ Rails3::Application.routes.draw do
   # Administration
   namespace :admin do 
     root :to => 'dashboard#index'
-    resources :settings
+    resources :settings 
+    match '/settings/update_settings' => 'settings#update_settings',  :requirements => { :method => :post }
     resources :announcements
     resources :commits
     resources :users do 

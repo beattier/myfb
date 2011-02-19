@@ -1,6 +1,6 @@
 class Admin::SettingsController < Admin::BaseController  
   def index
-    # Render index.html.erb
+    @settings = Setting.all
   end
   
   def update
@@ -10,6 +10,7 @@ class Admin::SettingsController < Admin::BaseController
       value = case(setting.field_type)
       when 'string':        input[1].to_s
       when 'integer':       input[1].to_i
+      when 'boolean':       input[1].to_s
       when 'float':         input[1].to_f
       end
       
