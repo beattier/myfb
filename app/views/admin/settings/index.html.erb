@@ -11,17 +11,16 @@
 	</p>
 <% end -%>
 
-<% form_tag :action => 'update' do %>
+<%= form_tag( admin_setting_path ) do %>
 
-<h3>General</h3>
+	<h3>General</h3>
 
-<p>There are currently no settings available.</p>
+	<p>There are currently no settings available.</p>
 		
-<%#= settings_field(Setting.load(:identifier)) %>
+	<%= settings_field(Setting.load( "test")) %>
 
-<!-- uncomment this if you make settings available.
-<div id="submitbutton">
-	<p><%= submit_tag 'Save Settings' %></p>
-</div> -->
+	<div id="submitbutton">
+		<p><%= submit_tag 'Save Settings' %></p>
+	</div> 
 
 <% end %>
