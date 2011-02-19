@@ -19,7 +19,8 @@ gem "post_commit"
 gem "will_paginate", "~> 3.0.pre2"
 gem "configatron"
 gem "declarative_authorization"
-gem "aasm"
+gem "aasm", "2.2.0"
+gem "gravatar"
 
 group :development do
   # To use debugger
