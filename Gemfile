@@ -20,7 +20,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem "configatron"
 gem "declarative_authorization"
 gem "aasm", "2.2.0"
-gem "gravatar"
+gem "gravatar_image_tag"
 
 group :development do
   # To use debugger

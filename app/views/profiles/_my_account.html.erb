@@ -2,7 +2,7 @@
 <h2>My account</h2>
 
 <div id="gravatar">
-	<%= gravatar_for @user, :size => 128 %>
+	<%= gravatar_image_tag( @user.email, :size => 128) %>
 </div>
 
 <ul>
