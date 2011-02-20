@@ -12,6 +12,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email, :limit => 100
       t.string :state, :null => :false, :default => 'passive'      
       t.string :twitter_token
+      t.datetime :activated_at
+      t.datetime :deleted_at
       
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both

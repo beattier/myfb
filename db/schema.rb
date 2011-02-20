@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20100831101816) do
     t.string   "name",                 :limit => 100, :default => ""
     t.string   "state",                               :default => "passive"
     t.string   "twitter_token"
+    t.datetime "activated_at"
+    t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
