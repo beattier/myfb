@@ -4,7 +4,9 @@
   <head>
     <title><%= configatron.site_namemobile %></title>
     <%= stylesheet_link_tag "/jqtouch/jqtouch.min.css", "/jqtouch/themes/apple/theme.min.css" %>
-    <%= javascript_include_tag :defaults, "/jqtouch/jqtouch.min.js" %>
+
+	<%= (javascript_include_merged :defaults ).html_safe %>
+    <%= javascript_include_tag "/jqtouch/jqtouch.min.js" %>
 	<link rel="apple-touch-icon" href="/images/iphone-icon.png"/>
 	<link rel="apple-touch-startup-image" href="/images/iphone-startup-screen.png"/>
 	<%=  csrf_meta_tag %>

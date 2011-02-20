@@ -5,11 +5,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title><%= configatron.site_name %></title>
-	
+	<title><%= configatron.site_name %></title>	
 	<%= (stylesheet_link_merged :dialog).html_safe %>
-	<%= javascript_include_tag :defaults %>
-	<%= (javascript_include_merged :base).html_safe %>
+	<%= (javascript_include_merged :defaults ).html_safe %>
   	<%=  csrf_meta_tag %>
 </head>
 
