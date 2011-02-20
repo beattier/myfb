@@ -2,7 +2,7 @@
 <%= configatron.site_name %> Login
 <% end -%>
 
-<% form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
+<%= form_for resource, :url => session_path(resource_name) do |f| -%>
 	<fieldset>	  
 		<legend>Login to your <%= configatron.site_name %> Account</legend>
 		
