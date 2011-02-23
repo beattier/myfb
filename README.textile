@@ -10,8 +10,8 @@ h2. Getting Started
      * rake db:migrate
      * rails s
 
-3. Go to http://localhost:3000/
+2. Go to http://localhost:3000/
 
-4. Administration username and password are as follows:
+3. Administration username and password are as follows:
      * admin
      * baseapp
