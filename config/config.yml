@@ -6,7 +6,7 @@ development: &local
     site_namemobile: BaseApp2
     site_url: baseapp2.local
     
-    company_name: BaseApp2 Ltd
+    company_name: Development Company
     admin_email: admin@baseapp2.local
     
     support_name: BaseApp2 Support
@@ -19,10 +19,10 @@ production:
     site_namemobile: BaseApp2
     site_url: www.baseapp2.com
     
-    company_name: BaseApp2 Ltd
+    company_name: Development Company
     admin_email: admin@baseapp2.com
     
-    support_name: BaseApp2 Support
+    support_name: Development Company
     support_email: support@baseapp2.com
     
     site_envnote: Production Server
