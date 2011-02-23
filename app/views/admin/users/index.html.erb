@@ -23,6 +23,8 @@
 
 <% # TODO: (base_app) Add some sort of search feature to easily find users %>
 <% for user in @users %>
+
+	<p>There is currently a total of <strong><%= @users.count %></strong> registered users.</p>
   <tr>
 	<td><%= user.id %></td>
 	<td><%= link_to h(user.login), admin_user_url(user) %></td>
