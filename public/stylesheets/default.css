@@ -5,6 +5,7 @@ ul {padding-left: 2em; margin-left: 0}
 #header {background-color: #204ca0; margin: 0; padding: 0.5em 2.2em 0 3em}
 #header h1 {font-weight: normal; color: #fff}
 #header h1 span {font-size: 0.6em; color: #bfd82d}
+#header h1 a {font-weight: normal; color: #fff; text-decoration: none;}
 #global_links {float: right; font-size: 0.8em; color: #e3fdff; margin-top:12px; text-transform: capitalize}
 #global_links a {color: #e3fdff; text-transform: capitalize}
 #global_links a:hover {color: #00a8c6; background-color: #e3fdff}
