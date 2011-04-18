@@ -33,6 +33,7 @@ Rails3::Application.routes.draw do
     match '/settings/update_settings' => 'settings#update_settings',  :requirements => { :method => :post }
     resources :announcements
     resources :commits
+    match '/users/search' => 'users#search',  :requirements => { :method => :get }
     resources :users do 
       member do 
         put :suspend

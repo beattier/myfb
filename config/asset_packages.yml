@@ -1,6 +1,6 @@
 --- 
 javascripts: 
-- base: 
+- base:
   - rails
   - application
 stylesheets: 

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   
   layout 'login'
   
-
   def troubleshooting
     # Render troubleshooting.html.erb
     render :layout => 'login'

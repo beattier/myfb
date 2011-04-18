@@ -17,7 +17,7 @@ module AasmRoles
         aasm_state :deleted, :enter => :do_delete
 
         aasm_event :register do
-          transitions :from => :passive, :to => :active, :guard => Proc.new {|u| !(u.encrypted_password.blank? && u.password.blank?) }
+          transitions :from => [:passive, :pending], :to => :active, :guard => Proc.new {|u| !(u.encrypted_password.blank? && u.password.blank?) }
         end
         
         aasm_event :register_openid do
@@ -25,7 +25,8 @@ module AasmRoles
         end
         
         aasm_event :activate do
-          transitions :from => :pending, :to => :active 
+          transitions :from => :pending, :to => :active
+          transitions :from => :passive, :to => :active 
         end
         
         aasm_event :suspend do

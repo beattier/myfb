@@ -2,23 +2,18 @@
 Edit User
 <% end -%>
 
-
-<%= error_messages_for :user %>
-
-<% form_for [:admin, @user], :method => :put do |f| -%>
-<p><label for="login">Login</label><br/>
-<%= f.text_field :login %></p>
-
-<p><label for="email">Email</label><br/>
-<%= f.text_field :email %></p>
-
-<p><label for="password">Password</label><br/>
-<%= f.password_field :password %></p>
-
-<p><label for="password_confirmation">Confirm Password</label><br/>
-<%= f.password_field :password_confirmation %></p>
-
-<p><%= submit_tag 'Save changes' %></p>
+<% content_for :sidebar do -%>
+    <%= render "admin/shared/error_messages", :target => @user%>
 <% end -%>
 
-<%= link_to 'Back', admin_users_path %>
+<% form_for [:admin, @user], :method => :put do |f| -%>
+<table class="overview">
+<%= cell((f.label :login), (f.text_field :login))%>
+<%= cell((f.label :email), (f.text_field :email))%>
+<%= cell((f.label :password), (f.password_field :password))%>
+<%= cell((f.label :password_confirmation), (f.password_field :password_confirmation))%>
+
+<%= cell("", (submit_tag 'Create account'))%>
+<% end -%>
+<%= cell("", (link_to 'Back', admin_users_path))%>
+</table>

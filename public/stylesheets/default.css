@@ -18,10 +18,14 @@ ul {padding-left: 2em; margin-left: 0}
 #tabs .with_space a, #tabs .with_space a.current {margin-right: 10px}
 #main {margin: 2em 0 0 3em}
 #left, #right, #right_kase {float: left}
-#left {background-color: #fff; width: 66%; background-image: url('/images/right-bg.gif'); background-position: right; background-repeat: repeat-y;}
+#left {background-color: #fff; width: 66%; 
+	box-shadow:5px 5px 5px #999;
+	moz-box-shadow:5px 5px 5px #999;	
+	webkit-box-shadow:5px 5px 5px #999;	
+	}
 #left-kase {background-color: #fff; width: 98.5%}
-#left .head, #left-kase .head {color: #000; background-color: #d3dbff; padding: 1em 1.2em; margin: 0; font-size: 16px;;border-bottom: 0px solid #5b72a5; position: relative; background-image: url('/images/right-bg.gif'); background-position: right; background-repeat: repeat-y;}
-#left #screen, #left-kase #screen {padding: 0 1.5em 1.5em; position: relative; background: url('/images/right-bg.gif') right repeat-y;}
+#left .head, #left-kase .head {color: #000; background-color: #d3dbff; padding: 1em 1.2em; margin: 0; font-size: 16px;;border-bottom: 0px solid #5b72a5; position: relative; }
+#left #screen, #left-kase #screen {padding: 0 1.5em 1.5em; position: relative;}
 #left #flash_notice, #left-kase #flash_notice {padding: 1.2em; background-color: #ffffbf; font-weight: bold; font-size: 1.3em}
 #left #flash_error, #left-kase #flash_error {padding: 1.2em; background-color: #ff0062; font-weight: bold; font-size: 1.3em}
 #left #flash_warning, #left-kase #flash_warning {padding: 1.2em; background-color: #ffffbf; font-weight: bold; font-size: 1.3em}
@@ -46,14 +50,31 @@ div.helpBox {margin: 15px 0px; padding: 10px; background-color: #fafad6; border:
 #right, #right_kase {width: 30%; margin-left: 20px; color: #666; background: white}
 #kase_avatar {position: absolute; right: 25px; margin-right: -6px}
 span input#kase_avatar {left: 0px}
+#right {box-shadow:5px 5px 5px #999;
+moz-box-shadow:5px 5px 5px #999;	
+webkit-box-shadow:5px 5px 5px #999;}
 #right img, #right_kase img {display: block; margin: 10px 0 10px 30%; padding: 10px; background-color: #d3dbff; border: 1px solid black}
 #right p, #right_kase p {padding: 5px 15px; font-size: smaller; line-height: 2em}
 #right a, #right_kase a {color: #666}
 #right a:hover, #right_kase a:hover {color: #fff; background-color: #666}
 #right label, #right_kase label {font-weight: bold}
 #right h2, #right_kase h2 {color: #204ca0; font-weight: normal; background-color: #d3dbff; padding: 0.7em 1em; margin: 0; font-size: 1.3em;border-bottom: 1px solid #5b72a5}
+#right h2.error, #right_kase h2 {color: #fff; font-weight: normal; background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.08, rgb(196,24,24)),
+    color-stop(0.54, rgb(255,20,20))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(196,24,24) 8%,
+    rgb(255,20,20) 54%
+);
+
+; padding: 0.7em 1em; margin: 0; font-size: 1.3em;border-bottom: 1px solid #5b72a5}
 #right ul, #right_kase ul {list-style: none; margin: 0; padding: 0; border-top: 1px solid #eee}
-#right li a, #right_kase li a {font-size: 1em; padding: 15px; line-height: 1.2em; border-bottom: 1px solid #eee; display: block}
+#right li , #right_kase li a {font-size: 1em; padding: 15px; line-height: 1.2em; border-bottom: 1px solid #eee; display: block}
 #right li a:hover, #right_kase li a:hover {color: black; background-color: #eaedfc}
 #footer {clear: both; padding: 1em 0 0 4em; color: #b5aea1; font-size: 0.8em}
 #footer a:link {color: #b5aea1; font-size: 0.8em; text-decoration: none;}
@@ -164,3 +185,4 @@ pre {
 	padding: 10px;
 	line-height: 1.4em;
 }
+.error{background-color: #ff0062; font-weight: bold; font-size: 1.3em}

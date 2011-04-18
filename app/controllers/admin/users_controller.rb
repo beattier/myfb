@@ -4,6 +4,12 @@ class Admin::UsersController < Admin::BaseController
     in_place_edit_for :user, attr.to_sym
   end
   
+  def search
+    # Basic Search with pagination
+    @users = User.search(params[:search]).paginate(:per_page => 100, :page => params[:page])  
+    render :index
+  end
+  
   def reset_password
     @user = User.find(params[:id])
     @user.reset_password!
@@ -110,9 +116,9 @@ class Admin::UsersController < Admin::BaseController
   # POST /admin/users
   def create
     @user = User.new(params[:user])
-
+   # debugger
     respond_to do |format|
-      if @user.register!
+      if @user.save
         flash[:notice] = "User was successfully created."
         format.html { redirect_to(admin_user_url(@user)) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }

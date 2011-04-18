@@ -2,8 +2,8 @@ require 'aasm_roles'
 class User < ActiveRecord::Base
   include AasmRoles
   
-  devise :database_authenticatable, :recoverable, :registerable, :rememberable
-
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable
+  validates_uniqueness_of :login, :email, :case_sensitive => false
   # Relations
   has_and_belongs_to_many :roles
   has_one :profile
@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
 
   before_validation(:set_default, :on => :create)
+  
+  def self.search(search)  
+    if search  
+       find(:all, :conditions => ['login LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%"])
+    else  
+      all
+    end
+  end
   
   def admin?
     has_role?(:admin)
