@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +21,9 @@ gem "configatron"
 gem "declarative_authorization"
 gem "aasm", "2.2.0"
 gem "gravatar_image_tag"
+gem "nifty-generators", :group => :development
+# https://github.com/marten/has_details
+# gem "has_details" # , :git => 'git://github.com/marten/has_details.git'
 
 group :development do
   # To use debugger
@@ -42,3 +45,4 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
 end
+gem "mocha", :group => :test
