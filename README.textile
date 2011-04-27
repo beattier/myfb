@@ -2,7 +2,7 @@ h1. BaseApp2
 
 h2. Requirements
 
-Rails 3.0.3
+Rails 3.0.7
 For Rails 2.3 please use the alternative branch.
 
 h2. Features
