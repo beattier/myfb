@@ -16,11 +16,11 @@
   <div id="main">
 
 	<div id="left">
-		
+	     
 	<h2 class="head"><%= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title" %></h2>
 	
-     <%= flash_message.html_safe %>
 
+<%= flash_message.html_safe %>	
       <div id="screen">
         <%= yield %>
       </div>

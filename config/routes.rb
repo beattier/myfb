@@ -10,7 +10,7 @@ Rails3::Application.routes.draw do
   resources :users do
      member do
        get :edit_password 
-       get :update_password
+       put :update_password
        get :edit_email
        put :update_email
        get :edit_avatar

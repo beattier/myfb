@@ -29,38 +29,19 @@ class UsersController < ApplicationController
   end
   
   def update_password    
-    if ! @user.not_using_openid?
+    if !@user.not_using_openid?
       flash[:notice] = "You cannot update your password. You are using OpenID!"
       redirect_to :back
     end
-    
-    if current_user == @user
-      current_password, new_password, new_password_confirmation = params[:current_password], params[:new_password], params[:new_password_confirmation]
-      
-      if @user.encrypt(current_password) == @user.crypted_password
-        if new_password == new_password_confirmation
-          if new_password.blank? || new_password_confirmation.blank?
-            flash[:error] = "You cannot set a blank password."
-            redirect_to edit_password_user_url(@user)
-          else
-            @user.password = new_password
-            @user.password_confirmation = new_password_confirmation
-            @user.save
-            flash[:notice] = "Your password has been updated."
-            redirect_to profile_url(@user)
-          end
-        else
-          flash[:error] = "Your new password and it's confirmation don't match."
-          redirect_to edit_password_user_url(@user)
-        end
-      else
-        flash[:error] = "Your current password is not correct. Your password has not been updated."
-        redirect_to edit_password_user_url(@user)
-      end
+    if @user.update_with_password(params[:user])
+      redirect_to root_path, :notice => "Password updated!"
     else
-      flash[:error] = "You cannot update another user's password!"
-      redirect_to edit_password_user_url(@user)
+      @user.errors.each do |name ,msg| 
+        flash[:error] = name.to_s.titleize + " " + msg
+      end
+      render :edit_password        
     end
+ 
   end
   
   def edit_email
@@ -87,6 +68,7 @@ class UsersController < ApplicationController
         redirect_to edit_email_user_url(@user)
       end
     else
+
       flash[:error] = "You cannot update another user's email address!"
       redirect_to edit_email_user_url(@user)
     end
