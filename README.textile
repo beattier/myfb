@@ -57,3 +57,11 @@ h2. Getting Started
 3. Administration username and password are as follows:
      * admin
      * baseapp
+
+h2. Collaborators
+
+* dannymcc
+* rorcraft
+* rposborne
+* sanchitg
+* t0d0r
