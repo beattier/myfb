@@ -18,18 +18,19 @@ module ApplicationHelper
   # in the same array.
   # 
   # +name+ specifies the name of the tab
-  # +all_options+ is an array of hashes, where the first hash of the array is the tab's link and all others will make the tab show up as current.
+  # +all_options+ is an array of hashes or strings, where the first hash/string of the array is the tab's link and all others will make the tab show up as current.
   # 
   # If now options are specified, the tab will point to '#', and will never have the 'active' state.
   def tab_to(name, all_options = nil)
-    url = all_options.is_a?(Array) ? all_options[0].merge({:only_path => false}) : "#"
-
-    current_url = url_for(:action => controller.action_name, :only_path => false)
+    url = "#"
     html_options = {}
+    current_url = [ url_for(:action => controller.action_name, :only_path => false), request.fullpath ]
 
     if all_options.is_a?(Array)
+      url = all_options[0].is_a?(Hash) ? all_options[0].merge({:only_path => false}) : all_options[0]
       all_options.each do |o|
-        if url_for(o.merge({:only_path => false})) == current_url
+        path = o.is_a?(Hash) ? url_for(o.merge({:only_path => false})) : o
+        if current_url.include?(path)
           html_options = {:class => "active"}
           break
         end
