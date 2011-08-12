@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
 
   before_validation(:set_default, :on => :create)
   
-  def self.search(search)  
+  def self.search(search, page)
     if search  
-       find(:all, :conditions => ['login LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%"])
+      paginate :per_page => 100, :page => page, :conditions => ['login LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%"]
     else  
       all
     end
