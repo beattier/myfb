@@ -1,0 +1,67 @@
+h1. BaseApp2
+
+h2. Requirements
+
+Rails 3.0.9
+For Rails 2.3 please use the alternative branch.
+
+h2. Features
+
+- Layout
+- Tabs
+- Global links
+- Optional sidebar
+- Notice, warning and error flash messages
+- Both a default stylesheet as well as a ‘clean’ one are included for easy layout development.
+- Default dashboard page
+- Administration panel where you can:
+  Manage users (add, delete, purge, suspend, activate, send new passwords)
+- Manage settings
+- Manage site wide timed announcements
+- Post-Commit Hooks ready to roll for Campfire, Basecamp, FriendFeed, Twitter and custom URL.
+- User authentication, with password recovery and login recovery and account activation (by email)
+- User Profiles:
+  Location, Website, Full name fields by default, easily extendible.
+  Gravatar for avatar support
+- Mobile Ready
+- Auto detect mobile users/visitors and display different views.
+- Based on the JQTouch framework, making it easy to theme.
+- Devise 
+- Declarative Authorization
+
+h2. Configatron vs. Settings
+
+Previously, site settings were stored in the database. Now, you have two options for storing configuration settings.
+
+1. Configatron config/config.yml
+
+All default configuration options that are not ‘user changeable’ should go in config/config.yml. This uses the Configatron gem (frozen in vendor/gems).
+
+To retrieve the site name you may use ‘configatron.site_name’ everywhere in your code.
+
+2. Settings in database
+
+It’s still possible to store user changeable settings in the database model Setting.
+
+Note: As long as there are no Settings in the database, the ‘Settings’ tab for the administrator is hidden. Once you add a Setting to the database through a migration (or otherwise), the Settings tab will show up.
+
+h2. Getting Started
+
+1. At the command prompt:
+     * bundle install
+     * rake db:migrate
+     * rails s
+
+2. Go to http://localhost:3000/
+
+3. Administration username and password are as follows:
+     * admin
+     * baseapp
+
+h2. Collaborators
+
+* dannymcc
+* rorcraft
+* rposborne
+* sanchitg
+* t0d0r

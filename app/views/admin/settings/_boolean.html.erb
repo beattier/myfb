@@ -1,0 +1,9 @@
+<div class="setting textfield" id="setting=<%= setting.id %>">
+	<p>
+		<strong><%= setting.label %></strong><br />
+		<small><%= setting.description %></small>
+	</p>
+	<p>
+		<%= select_tag("settings[#{setting.id}]", options_for_select([["On", 1], ["Off", 0]], :selected => setting.value) ) %>
+	</p>
+</div>

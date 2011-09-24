@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title><%= configatron.site_name %></title>
+
+	<%= (stylesheet_link_merged :base).html_safe %>
+	<%= (javascript_include_merged :defaults ).html_safe %>
+	<%= stylesheet_link_tag 'mobile' if mobile_device? %>
+  	<%=  csrf_meta_tag %>
+</head>
+
+<body>
+
+  <div id="header">
+    <div id="global_links">
+      <%= render :partial => 'shared/global_links' %>
+    </div>
+    <h1><%= configatron.site_name %></h1>
+
+    <div id="tabs">
+      <%= render :partial => 'shared/tabs' %>
+    </div>
+  </div>
+
+  <div id="main">
+	
+	<%= render :partial => "shared/announcements" unless announcements_for_display.empty? -%>
+	
+    <div id="left">
+	  <%= flash_message.html_safe %>
+
+      <h2 class="head"><%= yield_or_default yield(:header), "Use 'content_for :header do; end' in your view to set this title" %></h2>
+
+      <div id="screen">
+        <%= yield %>
+      </div>
+    </div>
+    <div id="right">
+      <%= yield_or_default(yield(:sidebar)) %>
+    </div>
+  </div>
+  <div id="footer">
+    <%= configatron.site_name %> © by <%= configatron.company_name %>
+	<p>
+	  <% if mobile_device? %>
+	    <%= link_to "Full Site", :mobile => 0 %>
+	  <% else %>
+	    <%= link_to "Mobile Site", :mobile => 1 %>
+	  <% end %>
+	</p>
+  </div>
+
+
+</body>
+</html>

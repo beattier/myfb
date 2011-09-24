@@ -1,0 +1,19 @@
+<% content_for :header do -%>
+Edit User
+<% end -%>
+
+<% content_for :sidebar do -%>
+    <%= render "admin/shared/error_messages", :target => @user%>
+<% end -%>
+
+<% form_for [:admin, @user], :method => :put do |f| -%>
+<table class="overview">
+<%= cell((f.label :login), (f.text_field :login))%>
+<%= cell((f.label :email), (f.text_field :email))%>
+<%= cell((f.label :password), (f.password_field :password))%>
+<%= cell((f.label :password_confirmation), (f.password_field :password_confirmation))%>
+
+<%= cell("", (submit_tag 'Create account'))%>
+<% end -%>
+<%= cell("", (link_to 'Back', admin_users_path))%>
+</table>

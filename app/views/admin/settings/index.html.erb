@@ -1,0 +1,41 @@
+<% content_for :header do -%>
+Application Settings
+<% end -%>
+
+<% content_for :sidebar do -%>
+<p>
+	These are site-wide settings. They will be used through-out your application.
+</p>
+<p>
+	To add new settings, simple create a new row in the 'settings' table. 
+</p>
+<% end -%>
+
+<h3>General</h3>
+
+<pre>	
+	rails c 
+	Setting.create!(:label =>"Flight Mode", :identifier => "flight",
+	 :description => "Turn ruby flight mode on or off", :field_type =>"integer", :value =>"1")
+</pre>
+<p>
+Boolean, Float, String or Integer are valid field types, default is string
+</p>
+<% if !@settings.blank?%>
+<%= form_for @settings,:url => admin_settings_update_settings_path do |f| %>
+
+<% for setting in @settings %>  
+	<%= fields_for "setting[]", setting do |f| %>  
+		<%= settings_field(Setting.load(setting.identifier)) %>
+		<% end %>  
+<% end %>
+
+<div id="submitbutton">
+	<p><%= submit_tag 'Save Settings' %></p>
+	
+</div> 
+<% end %>
+<% else %>
+<h3>Currently, there are no settings present, add one with the above code!</h3>
+
+<% end %>
